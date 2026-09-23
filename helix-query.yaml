@@ -16,3 +16,12 @@ indices:
       robots:
         select: head > meta[name="robots"]
         value: attribute(el, "content")
+      image:
+        select: body > main > div.highlight.section.cards-container > div.cards-wrapper > div > ul > li:nth-child(2) > div.cards-card-image
+        value: match(attribute(el, "content"), "https:\/\/[^/]+(/.*)")
+      title:
+        select: head > meta[property="og:title"]
+        value: attribute(el, "content")
+      description:
+        select: head > meta[name="description"]
+        value: attribute(el, "content")
